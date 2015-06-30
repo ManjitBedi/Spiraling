@@ -40,6 +40,7 @@
 		7884E56A1B420A63001C1EAC /* SpiralingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpiralingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7884E56F1B420A63001C1EAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7884E5701B420A63001C1EAC /* SpiralingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpiralingTests.swift; sourceTree = "<group>"; };
+		78CCA8101B434A6A009382AE /* readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +64,7 @@
 		7884E5481B420A63001C1EAC = {
 			isa = PBXGroup;
 			children = (
+				78CCA8101B434A6A009382AE /* readme.md */,
 				7884E5531B420A63001C1EAC /* Spiraling */,
 				7884E56D1B420A63001C1EAC /* SpiralingTests */,
 				7884E5521B420A63001C1EAC /* Products */,
@@ -419,6 +421,7 @@
 				7884E5761B420A63001C1EAC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7884E5771B420A63001C1EAC /* Build configuration list for PBXNativeTarget "SpiralingTests" */ = {
 			isa = XCConfigurationList;
@@ -427,6 +430,7 @@
 				7884E5791B420A63001C1EAC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
