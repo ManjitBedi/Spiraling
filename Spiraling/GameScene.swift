@@ -38,7 +38,7 @@ class GameScene: SKScene {
             let x = radius * cos(angle) + xOffset
             let y = radius * sin(angle) + yOffset
             node.position = CGPointMake(CGFloat(x), CGFloat(y))
-            print(node.position)
+            //print(node.position)
             addChild(node)
             angle += angleIncrement
             radius = radius + 10.0
