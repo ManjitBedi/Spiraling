@@ -27,6 +27,14 @@ extension SKNode {
 
 class GameViewController: UIViewController {
     
+    
+    // This method will resize the loaded scene file to conform to the size of the
+    // of the current application window.
+    // 
+    // The scene canvas is set to the size of an iPad frame size.
+    //
+    // We only the re-sizing ot happen once.
+    // (may need to adjust this code if the app allows for rotation)
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         

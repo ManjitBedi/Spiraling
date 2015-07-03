@@ -17,6 +17,8 @@ class GameScene: SKScene {
     }
     
     
+    // using polar co-ordinates create a spiral starting from the center of
+    // of the scene
     func createSpiral() {
 
         var xOffset:CGFloat
@@ -32,7 +34,6 @@ class GameScene: SKScene {
         let angleIncrement:CGFloat = CGFloat(M_PI) * 2.0 / CGFloat(count)
         
         for index in 0...count {
-            //let hue:CGFloat = CGFloat(index) / CGFloat(count)
             let node = SKShapeNode(circleOfRadius: 2.0)
             node.strokeColor = UIColor(red: 255, green: 0, blue: 0, alpha: 0.5)
             let x = radius * cos(angle) + xOffset
@@ -43,6 +44,8 @@ class GameScene: SKScene {
             angle += angleIncrement
             radius = radius + 10.0
         }
+        
+        // TODO: use a bezier path to connect the nodes?
     }
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
