@@ -24,6 +24,7 @@ class GameScene: SKScene {
         var xOffset:CGFloat
         var yOffset:CGFloat
         
+        // we want to start the sprial at the centre of the scene
         xOffset = self.size.width/2.0
         yOffset = self.size.height/2.0
         
@@ -46,6 +47,10 @@ class GameScene: SKScene {
         }
         
         // TODO: use a bezier path to connect the nodes?
+        
+        // TODO: create a second spiral offset from the existing spiral
+        
+        // TODO: fill the area of the region created by the 2 spirals
     }
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
