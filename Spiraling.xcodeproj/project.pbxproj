@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		781887931B4A377C00948AF7 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781887921B4A377C00948AF7 /* extensions.swift */; };
 		7884E5571B420A63001C1EAC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7884E5561B420A63001C1EAC /* AppDelegate.swift */; };
 		7884E5591B420A63001C1EAC /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7884E5581B420A63001C1EAC /* GameScene.sks */; };
 		7884E55B1B420A63001C1EAC /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7884E55A1B420A63001C1EAC /* GameScene.swift */; };
@@ -28,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		781887921B4A377C00948AF7 /* extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
 		7884E5511B420A63001C1EAC /* Spiraling.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spiraling.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7884E5551B420A63001C1EAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7884E5561B420A63001C1EAC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				7884E5561B420A63001C1EAC /* AppDelegate.swift */,
 				7884E5581B420A63001C1EAC /* GameScene.sks */,
 				7884E55A1B420A63001C1EAC /* GameScene.swift */,
+				781887921B4A377C00948AF7 /* extensions.swift */,
 				7884E55C1B420A63001C1EAC /* GameViewController.swift */,
 				7884E55E1B420A63001C1EAC /* Main.storyboard */,
 				7884E5611B420A63001C1EAC /* Images.xcassets */,
@@ -225,6 +228,7 @@
 				7884E55B1B420A63001C1EAC /* GameScene.swift in Sources */,
 				7884E55D1B420A63001C1EAC /* GameViewController.swift in Sources */,
 				7884E5571B420A63001C1EAC /* AppDelegate.swift in Sources */,
+				781887931B4A377C00948AF7 /* extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

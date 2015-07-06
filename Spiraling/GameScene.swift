@@ -9,16 +9,25 @@
 import SpriteKit
 import QuartzCore
 
+struct Thingy {
+    
+    var node1:SKShapeNode
+    var node2:SKShapeNode
+    var node3:SKShapeNode
+    var segment1:SKShapeNode
+    var segment2:SKShapeNode
+}
+
 class GameScene: SKScene {
     
     override func didMoveToView(view: SKView) {
         
         self.createSpiral()
+        self.createRandoms()
     }
     
     
-    // using polar co-ordinates create a spiral starting from the center of
-    // of the scene
+    // using polar co-ordinates create a spiral starting from the center of the scene
     func createSpiral() {
 
         var xOffset:CGFloat
@@ -70,6 +79,58 @@ class GameScene: SKScene {
         // TODO: create a second spiral offset from the existing spiral
         
         // TODO: fill the area of the region created by the 2 spirals
+    }
+    
+    
+    // create some randomly placed line segments in the scene
+    func createRandoms(){
+     
+        // create a composite shape out of three nodes and draw line segments between the nodes
+        let count = 20
+        var xSpread:Int = Int(self.size.width) - 20
+        var ySpread:Int = Int(self.size.height) - 20
+        
+        let r  = CGPoint.randomPoint
+        
+        for index in 1...count{
+            
+            var startCoord:CGPoint = r.random(rangeX:xSpread, rangeY: ySpread)
+            let node1 = SKShapeNode(circleOfRadius: 2.0)
+            node1.strokeColor = UIColor.redColor()
+            node1.position = startCoord;
+            addChild(node1)
+
+            var secondCoord:CGPoint = r.random(rangeX:10, rangeY:10)
+
+            var segment1 = SKShapeNode(rect:CGRectMake(startCoord.x, startCoord.y, secondCoord.x, secondCoord.y))
+            segment1.strokeColor = UIColor.redColor()
+            addChild(segment1)
+
+            
+            secondCoord.x += startCoord.x
+            secondCoord.y += startCoord.y
+            let node2 = SKShapeNode(circleOfRadius: 2.0)
+            node2.strokeColor = UIColor.redColor()
+            node2.position = secondCoord;
+            addChild(node2)
+            
+            var thirdCoord:CGPoint = r.random(rangeX:10, rangeY:10)
+
+            var segment2 = SKShapeNode(rect:CGRectMake(startCoord.x, startCoord.y, thirdCoord.x, thirdCoord.y))
+            segment2.strokeColor = UIColor.redColor()
+            addChild(segment2)
+
+            
+            thirdCoord.x += startCoord.x
+            thirdCoord.y += startCoord.y
+            let node3 = SKShapeNode(circleOfRadius: 2.0)
+            node3.strokeColor = UIColor.redColor()
+            node3.position = thirdCoord;
+            addChild(node3)
+
+            var instance = Thingy(node1: node1, node2: node2, node3: node3, segment1: segment1, segment2: segment2)
+            
+        }
     }
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
