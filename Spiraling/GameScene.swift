@@ -35,6 +35,7 @@ class GameScene: SKScene {
         let angleIncrement:CGFloat = CGFloat(M_PI) * 2.0 / CGFloat(count)
         
         
+        // set up the shape to draw the path of the spiral
         var line = SKShapeNode()
         var path = CGPathCreateMutable()
         var x1 = xOffset;
@@ -58,7 +59,7 @@ class GameScene: SKScene {
             y1 = y
         }
         
-        // create shape node
+        // create shape node using the path
         line.path = path
         line.lineWidth = 1
         line.fillColor = UIColor.redColor() // Not sure if this line is actually needed
