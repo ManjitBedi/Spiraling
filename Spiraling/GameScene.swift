@@ -34,9 +34,15 @@ class GameScene: SKScene {
         var radius:CGFloat = 10.0
         let angleIncrement:CGFloat = CGFloat(M_PI) * 2.0 / CGFloat(count)
         
+        
+        var line = SKShapeNode()
+        var path = CGPathCreateMutable()
+        var x1 = xOffset;
+        var y1 = yOffset;
+        
         for index in 0...count {
             let node = SKShapeNode(circleOfRadius: 2.0)
-            node.strokeColor = UIColor(red: 255, green: 0, blue: 0, alpha: 0.5)
+            node.strokeColor = UIColor.redColor()
             let x = radius * cos(angle) + xOffset
             let y = radius * sin(angle) + yOffset
             node.position = CGPointMake(CGFloat(x), CGFloat(y))
@@ -44,9 +50,21 @@ class GameScene: SKScene {
             addChild(node)
             angle += angleIncrement
             radius = radius + 10.0
+            
+            //        
+            CGPathMoveToPoint(path, nil, x1, y1)
+            CGPathAddLineToPoint(path, nil, x, y)
+            x1 = x
+            y1 = y
         }
         
-        // TODO: use a bezier path to connect the nodes?
+        // create shape node
+        line.path = path
+        line.lineWidth = 1
+        line.fillColor = UIColor.redColor() // Not sure if this line is actually needed
+        line.strokeColor = UIColor.redColor()
+        addChild(line)
+                
         
         // TODO: create a second spiral offset from the existing spiral
         
