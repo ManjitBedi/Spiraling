@@ -86,7 +86,7 @@ class GameScene: SKScene {
     func createRandoms(){
      
         // create a composite shape out of three nodes and draw line segments between the nodes
-        let count = 20
+        let count = 4
         var xSpread:Int = Int(self.size.width) - 20
         var ySpread:Int = Int(self.size.height) - 20
         
@@ -97,16 +97,21 @@ class GameScene: SKScene {
             var startCoord:CGPoint = r.random(rangeX:xSpread, rangeY: ySpread)
             let node1 = SKShapeNode(circleOfRadius: 2.0)
             node1.strokeColor = UIColor.redColor()
-            node1.position = startCoord;
+            node1.position = startCoord
             addChild(node1)
 
             var secondCoord:CGPoint = r.random(rangeX:10, rangeY:10)
+            secondCoord.x += 20
+            secondCoord.y += 20
 
-            var segment1 = SKShapeNode(rect:CGRectMake(startCoord.x, startCoord.y, secondCoord.x, secondCoord.y))
+            // the co-ordinates for the line segment are relative to the node's origin.
+            var firstPoint = CGPointMake(0, 0)
+            var points = [firstPoint, secondCoord]
+            var segment1 = SKShapeNode(points: &points, count: 2)
+            segment1.position = startCoord
             segment1.strokeColor = UIColor.redColor()
             addChild(segment1)
 
-            
             secondCoord.x += startCoord.x
             secondCoord.y += startCoord.y
             let node2 = SKShapeNode(circleOfRadius: 2.0)
@@ -115,12 +120,15 @@ class GameScene: SKScene {
             addChild(node2)
             
             var thirdCoord:CGPoint = r.random(rangeX:10, rangeY:10)
+            thirdCoord.x += 20
+            thirdCoord.y += 20
 
-            var segment2 = SKShapeNode(rect:CGRectMake(startCoord.x, startCoord.y, thirdCoord.x, thirdCoord.y))
+            points = [firstPoint, thirdCoord];
+            var segment2 = SKShapeNode(points: &points, count: 2)
+            segment2.position = startCoord
             segment2.strokeColor = UIColor.redColor()
             addChild(segment2)
 
-            
             thirdCoord.x += startCoord.x
             thirdCoord.y += startCoord.y
             let node3 = SKShapeNode(circleOfRadius: 2.0)
@@ -129,7 +137,6 @@ class GameScene: SKScene {
             addChild(node3)
 
             var instance = Thingy(node1: node1, node2: node2, node3: node3, segment1: segment1, segment2: segment2)
-            
         }
     }
     
