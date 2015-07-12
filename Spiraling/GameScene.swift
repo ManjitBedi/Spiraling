@@ -86,7 +86,7 @@ class GameScene: SKScene {
     func createRandoms(){
      
         // create a composite shape out of three nodes and draw line segments between the nodes
-        let count = 4
+        let count = 20
         var xSpread:Int = Int(self.size.width) - 20
         var ySpread:Int = Int(self.size.height) - 20
         
@@ -103,7 +103,7 @@ class GameScene: SKScene {
             var secondCoord:CGPoint = r.random(rangeX:10, rangeY:10)
             secondCoord.x += 20
             secondCoord.y += 20
-
+            
             // the co-ordinates for the line segment are relative to the node's origin.
             var firstPoint = CGPointMake(0, 0)
             var points = [firstPoint, secondCoord]
@@ -119,9 +119,12 @@ class GameScene: SKScene {
             node2.position = secondCoord;
             addChild(node2)
             
+            // TODO: position the next point some distance away from the previous coordinate using angles?
             var thirdCoord:CGPoint = r.random(rangeX:10, rangeY:10)
-            thirdCoord.x += 20
-            thirdCoord.y += 20
+            let dice = arc4random_uniform(2)
+            thirdCoord.x += dice == 0 ? 20 : -20
+            let dice2 = arc4random_uniform(2)
+            thirdCoord.y += dice2 == 0 ? 20 : -20
 
             points = [firstPoint, thirdCoord];
             var segment2 = SKShapeNode(points: &points, count: 2)
