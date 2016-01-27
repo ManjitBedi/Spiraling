@@ -37,7 +37,6 @@ class GameScene: SKScene {
         xOffset = self.size.width/2.0
         yOffset = self.size.height/2.0
         
-        var index:Int
         var angle:CGFloat = 0.0
         let count:Int = 20
         var radius:CGFloat = 10.0
@@ -45,12 +44,12 @@ class GameScene: SKScene {
         
         
         // set up the shape to draw the path of the spiral
-        var line = SKShapeNode()
-        var path = CGPathCreateMutable()
+        let line = SKShapeNode()
+        let path = CGPathCreateMutable()
         var x1 = xOffset;
         var y1 = yOffset;
         
-        for index in 0...count {
+        for _ in 0...count {
             let node = SKShapeNode(circleOfRadius: 2.0)
             node.strokeColor = UIColor.redColor()
             let x = radius * cos(angle) + xOffset
@@ -87,14 +86,14 @@ class GameScene: SKScene {
      
         // create a composite shape out of three nodes and draw line segments between the nodes
         let count = 20
-        var xSpread:Int = Int(self.size.width) - 20
-        var ySpread:Int = Int(self.size.height) - 20
+        let xSpread:Int = Int(self.size.width) - 20
+        let ySpread:Int = Int(self.size.height) - 20
         
         let r  = CGPoint.randomPoint
         
-        for index in 1...count{
+        for _ in 1...count{
             
-            var startCoord:CGPoint = r.random(rangeX:xSpread, rangeY: ySpread)
+            let startCoord:CGPoint = r.random(rangeX:xSpread, rangeY: ySpread)
             let node1 = SKShapeNode(circleOfRadius: 2.0)
             node1.strokeColor = UIColor.redColor()
             node1.position = startCoord
@@ -105,9 +104,9 @@ class GameScene: SKScene {
             secondCoord.y += 20
             
             // the co-ordinates for the line segment are relative to the node's origin.
-            var firstPoint = CGPointMake(0, 0)
+            let firstPoint = CGPointMake(0, 0)
             var points = [firstPoint, secondCoord]
-            var segment1 = SKShapeNode(points: &points, count: 2)
+            let segment1 = SKShapeNode(points: &points, count: 2)
             segment1.position = startCoord
             segment1.strokeColor = UIColor.redColor()
             addChild(segment1)
@@ -127,7 +126,7 @@ class GameScene: SKScene {
             thirdCoord.y += dice2 == 0 ? 20 : -20
 
             points = [firstPoint, thirdCoord];
-            var segment2 = SKShapeNode(points: &points, count: 2)
+            let segment2 = SKShapeNode(points: &points, count: 2)
             segment2.position = startCoord
             segment2.strokeColor = UIColor.redColor()
             addChild(segment2)
@@ -139,19 +138,12 @@ class GameScene: SKScene {
             node3.position = thirdCoord;
             addChild(node3)
 
-            var instance = Thingy(node1: node1, node2: node2, node3: node3, segment1: segment1, segment2: segment2)
+            _ = Thingy(node1: node1, node2: node2, node3: node3, segment1: segment1, segment2: segment2)
         }
     }
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
-        /* Called when a touch begins */
-        
-//        for touch in (touches as! Set<UITouch>) {
-//            let location = touch.locationInNode(self)
-//        }
-    }
-   
-    override func update(currentTime: CFTimeInterval) {
-        /* Called before each frame is rendered */
-    }
+
+//    override func update(currentTime: CFTimeInterval) {
+//        /* Called before each frame is rendered */
+//    }
 }

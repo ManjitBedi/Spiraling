@@ -26,7 +26,7 @@ extension CGPoint {
     }
     
     //(a) public variable that creates a default random CGPoint
-    static var randomPoint = CGPoint.zeroPoint.random()
+    static var randomPoint = CGPoint.zero.random()
     
     
     //(b) default random point creation
@@ -38,7 +38,7 @@ extension CGPoint {
     }
     
     //(d) allows for the specification of the x and y random range
-    func random(#rangeX:Int, rangeY:Int)->CGPoint {
+    func random(rangeX rangeX:Int, rangeY:Int)->CGPoint {
         return CGPoint(x:randomInt(rangeX),y:randomInt(rangeY))
     }
     
@@ -48,7 +48,7 @@ extension CGPoint {
     }
     
     //(f) allows the same functionality as (d) but with a Range<Int> type parameter
-    func random(#rangeX:Range<Int>, rangeY:Range<Int> )->CGPoint {
+    func random(rangeX rangeX:Range<Int>, rangeY:Range<Int> )->CGPoint {
         return CGPoint(x:randomIntFromRange(rangeX), y:randomIntFromRange(rangeY))
     }
     
