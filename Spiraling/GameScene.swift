@@ -138,6 +138,7 @@ class GameScene: SKScene {
             node3.position = thirdCoord;
             addChild(node3)
 
+            // Is there a better way of ignoring the return value?
             _ = Thingy(node1: node1, node2: node2, node3: node3, segment1: segment1, segment2: segment2)
         }
     }
